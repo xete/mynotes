@@ -1,0 +1,56 @@
+# for arduino learning
+
+software serial
+	break down the limitation of built-in support for serial communication
+	on pins 0 and 1 for arduino
+	#include <SoftwareSerial.h>
+	SoftwareSerial portOne(10, 11)
+	portOne.listen()
+	portOne.available()
+	https://www.arduino.cc/en/Reference/SoftwareSerial
+	https://www.arduino.cc/en/Tutorial/SoftwareSerialExample
+	https://www.arduino.cc/en/Tutorial/TwoPortReceive
+
+serial event
+	void serialEvent(Serial port) {}
+	void serialEvent() {
+	  if( Serial.available() > 0 ) {
+	      Serial.print("serialEvent: "); 
+		  // return the third char of String read from serial
+		  Serial.print(Serial.readString().c_str()[2]);
+	  }
+	}
+	https://www.arduino.cc/en/Tutorial/SerialCallResponse
+
+Serial class
+	https://www.arduino.cc/en/Reference/Serial
+
+String class
+	NOTE THAT if you are using serial monitor of arduino ide,
+	be clear what is the actual content you have sent,
+	maybe some chars such as '\r' and '\n' would be appended.
+	choose among equals(), startsWith() or indexOf().
+	https://www.arduino.cc/en/Reference/StringObject
+
+interrupts
+	attach interrupts
+	https://www.arduino.cc/en/Reference/AttachInterrupt
+	enable or disable interrupts
+	https://www.arduino.cc/en/Reference/Interrupts
+
+interfacing with ov7670
+	https://github.com/ArduCAM/Arduino/tree/master/ArduCAM
+	http://forum.arduino.cc/index.php/topic,159557.0.html
+	https://developer.mbed.org/users/ms523/notebook/ov7670-camera/
+	http://stackoverflow.com/questions/21220738/arduino-ov7670-without-fifo-reading-snapshot
+	http://embeddedprogrammer.blogspot.com/2012/07/hacking-ov7670-camera-module-sccb-cheat.html
+	http://www.arducam.com/
+	http://www.sunrom.com/p/camera-module-ov7670
+
+interfacing with esp8266
+	https://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/
+	http://www.rpg.fi/desaster/blog/2012/05/07/ov7670-camera-sensor-success/
+	http://www.instructables.com/id/How-to-use-OV7670-Camera-Module-with-Arduino/ (only reference for camera with serial)
+
+stepper motor
+	http://www.instructables.com/id/BYJ48-Stepper-Motor/
