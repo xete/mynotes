@@ -1,0 +1,21 @@
+esp8266-01 8pinouts:
+  ------------
+  RX       VCC
+  GPIO0    RST 
+  GPIO2  CH_PD
+  GND       TX
+  ------------
+VCC CH_PD -- 3.3V(recommended)
+             or higher to 5V if the supply is not enough
+GND -- reference ground
+RST -- pull up to VCC through a 3K-10K resistor
+GPIO0 -- mode seletion pin
+         MUST leave it floating while booting to enter normal boot,
+		 pull down to GND through a 330-500Ohm resistor or directly
+         to enter programming mode
+GPIO2 -- just as normal io pin
+RX TX -- serial ports
+
+NEVER flash esp8266 while the serial is monitoring, otherwise it fails.
+NOTE THAT some newer sdk version COULD NOT fit earlier chips.
+
