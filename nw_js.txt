@@ -1,0 +1,70 @@
+# for nw_js learning
+
+install
+	npm install -g nw (ubuntu 14.04)
+run
+	nw APP_DIR
+
+nw global object
+	the global object nw doesn't work for me, so I need extra assignment
+	var nw = require('nw.gui')	
+
+every app package should contain a manifest file named package.json,
+in the format of json
+	{
+		"KEY": "VALUE"
+		...
+	}
+
+debug with devtools
+	only usable in sdk flavor(not normal version nw.js)
+	win.showDevTools() or shortcuts for debugging in browsers
+	enable remote debugging --remote-debugging-port=PROT
+	attach remote http://host:port/
+
+http://docs.nwjs.io/en/v0.13.0-beta5/References/Manifest%20Format/
+minimal version manifest(required)
+	main String -- start page
+	name String -- application name
+features control fields(what nw.js should provide)
+	nodejs Boolean -- disable node support
+	node-main String -- path to node.js script on startup in node context
+                        before the first dom window load
+	bg-script String -- background script
+	window Object -- controls how the main window looks
+	webkit Object -- controls what features of webkit should be on or off
+	user-agent String -- user agent header in http request
+	node-remote Array/String -- enable node calling in remote pages
+	js-flags String -- flags passed to js engine(v8)
+	inject_js_start String -- after css and before dom construction
+                              and other scripts execution
+	inject_js_end String -- after document object loaded
+                            before onload event fires
+	additional_trust_anchors String -- CA
+	    "-----BEGIN CERTIFICATE-----\n ... \n-----END CERTIFICATE-----\n"
+window object fields
+	title String
+	width height integer
+	min_width min_height Integer
+	max_width max_height Integer
+	toolbar Boolean
+	icon String -- path to window's icon
+	position String -- null, center or mouse
+	as_desktop Boolean -- show as desktop background window under X11
+	resizable Boolean
+	always_on_top Boolean
+	visible_on_all_workspace Boolean -- whether visible on all workspaces
+	fullscreen Boolean
+	show_in_taskbar Boolean
+	frame Boolean	
+	show Boolean -- hide app on startup
+	kiosk Boolean -- trap in fullscreen, way to leave should be provided 
+webkit object fields
+	double_tap_to_zoom_enabled Boolean -- max
+	plugin Boolean -- whether to load external plugins like flash
+
+	Running without the SUID sandbox! See https://code.google.com/p/chromium/wiki/LinuxSUIDSandboxDevelopment for more information on developing with the sandbox on.
+	
+
+hold iframe for later operation
+	https://docs.omniref.com/js/npm/devkit/2.0.0/files/node-webkit/index.html
